@@ -1,0 +1,12 @@
+name: CI - Build Docker (Chatbot)
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Docker image
+        run: docker build -t ck-chatbot:${{ github.sha }} .
